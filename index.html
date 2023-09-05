@@ -19,12 +19,14 @@
 
   <script>
     const apiUrl = 'https://api.github.com/repos/wangchunin/Script/contents';
+    const apiKey = '__API_KEY__'; // Replace with the actual environment variable name
 
     async function fetchDirectory(path) {
       const response = await fetch(apiUrl + path, {
         headers: {
           'User-Agent': 'Mozilla/5.0 (compatible; Cloudflare-Worker/1.0)',
           'Accept': 'application/vnd.github.v3+json',
+          'Authorization': `Bearer ${apiKey}`
         }
       });
 
